@@ -1,0 +1,44 @@
+<%= render 'sidebar' %>
+<body style='padding-left: 15px;'>
+<%= form_for(@image) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <div class="field">
+    Patient Name<br>
+    <%= f.text_field :patient_name %>
+  </div>
+  <div class="field">
+    Patient/Image Identifier<br>
+    <%= f.text_field :patient_id %>
+  </div>
+  <div class="field">
+    Image Description:<br>
+    <%= f.text_field :image_desc %>
+  </div>
+  <div class="field">
+    Patient DOB<br>
+    <%= f.text_field :dob %>
+  </div>
+  <div class="field">
+  Your recipient's email address:<br>
+  <%= f.email_field :recipient %>
+  </div>
+  <div class="filefield">
+  Attach your image file:
+  <%= f.file_field :image_file %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p class="header">
+  <strong>Patient name:</strong>
+  <%= @image.patient_name %>  |
+    <strong>Patient:</strong>
+  <%= @image.patient_id %>   |
+
+  <strong>Image desc:</strong>
+  <%= @image.image_desc %>   |
+
+  <strong>Dob:</strong>
+  <%= @image.dob %>
+  <strong>Token:</strong>
+  <%= @image.token %>
+</p>
+<%= image_tag @image.image_file.url %>
+<br>
+<%= link_to "Download", @image.image_file.url(:original, false) %>
+
+<br>
+<%= link_to 'Back', images_path %>
