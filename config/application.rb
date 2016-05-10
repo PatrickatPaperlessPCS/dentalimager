@@ -24,15 +24,6 @@ module Imageshare
     config.active_record.raise_in_transactional_callbacks = true
     config.action_mailer.delivery_method = :postmark
     config.action_mailer.postmark_settings = { :api_token => "5fcec316-e4d9-4d32-845f-8f305f45ce8c" }
-#     config.paperclip_defaults = {
-#   storage: :s3,
-#   s3_credentials: {
-#     bucket: ENV.fetch('AWS_BUCKET_ID'),
-#     access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-#     secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-#   }
-# }
-  # Sets Paperclip to use Amazon S3
-  
+
   end
 end

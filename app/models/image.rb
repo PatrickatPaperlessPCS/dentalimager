@@ -1,7 +1,9 @@
 class Image < ActiveRecord::Base
-	has_attached_file :image_file, default_url: "/dentalimager/images/:style/missing.png"
-	validates_attachment_file_name :image_file, matches: [/png\Z/, /jpeg\Z/, /tiff\Z/, /bmp\Z/, /jpg\Z/]
-   # validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
+require 'aws-sdk'
+
+	has_attached_file :image_file, url: "/esignhealth/images/:id/:filename", path:"/esignhealth/images/:id/:filename"
+	# validates_attachment_file_name :image_file, matches: [/png\Z/, /jpeg\Z/, /tiff\Z/, /bmp\Z/, /jpg\Z/]
+   validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
    # validates :image_file, :presence => true
   	validates :patient_name, :presence => true
 

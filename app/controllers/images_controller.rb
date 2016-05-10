@@ -17,7 +17,6 @@ class ImagesController < ApplicationController
   # GET /images/new
   def new
     @image = Image.new
-    @image.user_id = '5'
   end
 
   # GET /images/1/edit
@@ -28,11 +27,10 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
-
     respond_to do |format|
       if @image.save
-        ImagesMailer.email(@image).deliver_later
-        format.html { redirect_to images_path, notice: 'Image was successfully created.' }
+        # ImagesMailer.email(@image).deliver_later
+        format.html { redirect_to root_path, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
