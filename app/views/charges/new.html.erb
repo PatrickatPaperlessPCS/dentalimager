@@ -3,33 +3,30 @@
 
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Thanks for trying us out!</h4>
-      </div>
+
       <div class="modal-body">
-      <div class="center"><%= image_tag("logo.jpg", width: '200', height: '75') %></div>
+      <div class="center"><%= image_tag("logoBB.png", width: '200', height: '75') %></div>
 
 </p>
             <hr>
 
   <div>         
-      <div style="horizontal-align: center;">
-        <h4>Sign up with eSignHealth for just $45 per month
+      <div style="text-align: center;">
+        <h4>Thanks for trying us out!</h4>
+        <p>Now help us keep the lights on.  Dental Imager is just $9/per month* with unlimited use!
+          <p style="color: gray;"><sup> *billed annually </sup></p>
 <%= form_tag charges_path do %>
-</br>
-<%= text_field :plan %>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="eSignHealth Subscription"
-          data-amount="4500"
+          data-description="Dental Imager Subscription"
+          data-amount="10800"
           ></script>
 <% end %>     </h4>
         <p style="padding-top: 10px;"> There’s no risk and you can cancel anytime with a single click from your dashboard.</p><br>
       </div>
   </div>    
       <div class="modal-footer center">
-          Having trouble?  Reach out to us at <a href="mailto:support@esignhealth.com">support@eSignHealth.com</a>
+          Having trouble?  Reach out to us at <a href="mailto:support@dentalimager.com">support@dentalimager.com</a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

@@ -8,7 +8,7 @@ def create
 
 	  customer = Stripe::Customer.create(
 		  :source => token, # obtained from Stripe.js
-		  :plan => "monthly45",
+		  :plan => "108annual",
 		  :email => current_user.email,
 		  #:coupon => "coupon_ID"
 	  	)
@@ -16,7 +16,7 @@ def create
 	  current_user.subscribed = true
 	  current_user.save!
 	  
-	  redirect_to documents_path
+	  redirect_to images_path
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

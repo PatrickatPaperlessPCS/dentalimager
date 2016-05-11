@@ -4,7 +4,11 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
+      if current_user.created_at <= 1.week.ago && !current_user.subscribed
+        redirect_to new_charge_path
+      else
     @images = Image.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+  end
   end
 
   # GET /images/1
@@ -29,7 +33,7 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     respond_to do |format|
       if @image.save
-        # ImagesMailer.email(@image).deliver_later
+        ImagesMailer.email(@image).deliver_later
         format.html { redirect_to root_path, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
