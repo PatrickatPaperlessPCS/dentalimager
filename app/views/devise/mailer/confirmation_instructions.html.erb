@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
+<center><img src="http://dentalimager.com/wp-content/uploads/2016/05/DILogoblack-blue896x151.png" alt="Logo" ></center>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Welcome to DentalImager <%= @email %>!</p>
+
+<p>To continue using DentalImager for longer than 1 day, you must confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Thanks,</p>
+<p>Patrick @ DentalImager</p>
