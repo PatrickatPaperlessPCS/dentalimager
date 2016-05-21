@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :images
 
-
+  	validates :name, :presence => true
+  	validates :telephone, :presence => true
 end
