@@ -3,16 +3,15 @@
 <p class="header">
   <strong>Patient name:</strong>
   <%= @image.patient_name %>  |
-    <strong>Patient:</strong>
+    <strong>Secondary Identifier:</strong>
   <%= @image.patient_id %>   |
 
-  <strong>Image desc:</strong>
+  <strong>Image description:</strong>
   <%= @image.image_desc %>   |
 
-  <strong>Dob:</strong>
+  <strong>Patient DOB:</strong>
   <%= @image.dob %>
-  <strong>Token:</strong>
-  <%= @image.token %>
+
 </p>
 <%= image_tag @image.image_file.url %>
 <br>

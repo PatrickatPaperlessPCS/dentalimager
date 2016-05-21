@@ -1,1 +1,3 @@
-Email
+<h3><%= @image.user_name %> has sent you an image using DentalImager in reference to patient <%= @image.patient_name %>! </h3>
+
+Click this link to view the image: <%= link_to 'Click Here', image_url(:id => @image.id, :token => @image.token) %>

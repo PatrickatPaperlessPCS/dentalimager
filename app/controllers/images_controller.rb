@@ -6,8 +6,8 @@ class ImagesController < ApplicationController
   def index
       if current_user.created_at <= 1.week.ago && !current_user.subscribed
         redirect_to new_charge_path
-      else
-    @images = Image.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    else
+    @images = current_user.images.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
   end
 
@@ -31,6 +31,8 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
+    @image.user_id = current_user.id
+    @image.user_name = current_user.name
     respond_to do |format|
       if @image.save
         ImagesMailer.email(@image).deliver_later
@@ -75,6 +77,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:patient_name, :patient_id, :image_desc, :dob, :image_file, :token, :user_id, :recipient)
+      params.require(:image).permit(:patient_name, :patient_id, :image_desc, :dob, :image_file, :user_name, :token, :user_id, :recipient)
     end
 end
