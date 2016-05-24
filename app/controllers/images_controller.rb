@@ -14,6 +14,7 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    @image = Image.find_by(token: params[:token], id: params[:id])
   end
 
   def share
