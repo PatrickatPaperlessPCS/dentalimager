@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: imageshare_production
-  username: imageshare
+  username: manager
   password: <%= ENV['IMAGESHARE_DATABASE_PASSWORD'] %>
