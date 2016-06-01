@@ -30,7 +30,6 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'aws-sdk', '~> 2'
 gem 'figaro'
 gem 'stripe'
-gem 'unicorn'
 
 # For heroku
 gem 'rails_12factor'
