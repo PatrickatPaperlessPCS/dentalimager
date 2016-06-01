@@ -21,8 +21,10 @@
         <td><%= image.patient_id %></td>
         <td><%= image.image_desc %></td>
         <td><%= image.dob %></td>
+<!-- ##TODO: FIX SO THAT I HAVE A DOWNLOAD BUTTON ONLY
         <td><%= button_to "View Image", image, :class => "btn btn-primary btn-sm", :method => :get  %></td>
-        <td><%= button_to "Download", image.image_file.url(:original, false), :class => "btn btn-warning btn-sm", :method => :get %></td>
+        <td><%= button_to "Download", image.image_file.url(:original, false), :class => "btn btn-warning btn-sm", :method => :get %></td> 
+         -->
         <td><%= link_to (image_tag("trash.png", width: '15', height: '15')) + " Delete", image, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
