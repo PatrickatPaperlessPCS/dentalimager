@@ -15,9 +15,6 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     @image = Image.find_by(token: params[:token], id: params[:id])
-    # unless 
-    #   user_signed_in?
-    # end
   end
 
   def share
