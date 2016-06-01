@@ -5,7 +5,7 @@
     <div class="modal-content">
 
       <div class="modal-body">
-      <div class="center"><%= image_tag("logoBB.png", width: '200', height: '75') %></div>
+      <div><center><%= image_tag("logoBB.png", width: '200', height: '75') %></div></center>
 
 </p>
             <hr>
@@ -13,20 +13,22 @@
   <div>         
       <div style="text-align: center;">
         <h4>Thanks for trying us out!</h4>
-        <p>Now help us keep the lights on.  Dental Imager is just $9/per month* with unlimited use!
-          <p style="color: gray;"><sup> *billed annually </sup></p>
-<%= form_tag charges_path do %>
+        <p>Now help us keep the lights on!  Dental Imager is just $99 per year with unlimited use!
+
+     </h4>
+        <p style="padding-top: 10px;"> There’s <u>no risk</u> and you can cancel anytime with a single click from your dashboard.</p><br>
+      </div><center>
+      <%= form_tag charges_path do %>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Dental Imager Subscription"
-          data-amount="10800"
+          data-amount="9900"
           ></script>
-<% end %>     </h4>
-        <p style="padding-top: 10px;"> There’s no risk and you can cancel anytime with a single click from your dashboard.</p><br>
-      </div>
-  </div>    
-      <div class="modal-footer center">
-          Having trouble?  Reach out to us at <a href="mailto:support@dentalimager.com">support@dentalimager.com</a>
+          <% end %></center>
+  </div>   
+  <hr> 
+      <div>
+          <center>Having trouble?<br>  Reach out to us at <a href="mailto:support@dentalimager.com">support@dentalimager.com</a></center>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
