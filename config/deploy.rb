@@ -38,13 +38,13 @@ set :unicorn_pid, '/opt/www/dentalimager/pids/unicorn.pid'
 # set :keep_releases, 5
 set :keep_releases, 5
 
-after 'deploy:publishing', 'deploy:restart'
+# after 'deploy:publishing', 'deploy:restart'
 
-	namespace :deploy do
-	  task :restart do
-    invoke 'unicorn:reload'
-  end
-end
+# 	namespace :deploy do
+# 	  task :restart do
+#     invoke 'unicorn:reload'
+#   end
+# end
 # namespace :deploy do
 
 #   after :restart, :clear_cache do
