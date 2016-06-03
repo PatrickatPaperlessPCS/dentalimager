@@ -23,7 +23,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-
+  config.timeout_in = 15.minutes
   config.allow_unconfirmed_access_for = 1.days
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

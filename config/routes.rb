@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/baa'
+
   devise_for :users
   resources :images
   resources :charges
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'images#index'
-
+  get 'pages/baa'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -41,6 +41,11 @@
     <strong>How did you hear about us? </strong><br />
     <%= f.text_field :referall %>
   </div>
+    <div class="field">
+  <%= f.check_box :agreement %> I agree with the <%= link_to 'Terms, Conditions, and Businesss Associate Agreement', pages_baa_path %>
+</div>
+  <div class="actions">
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

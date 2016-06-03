@@ -42,7 +42,9 @@
     <%= f.label :current_password %> <i>(your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+    <div class="field">
+  <%= f.check_box :agreement %> I agree with the <%= link_to 'Terms, Conditions, and Businesss Associate Agreement', pages_baa_path %>
+</div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

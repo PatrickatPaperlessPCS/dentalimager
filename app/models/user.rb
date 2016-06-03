@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
 
   	validates :name, :presence => true
   	validates :telephone, :presence => true
+  	validates :agreement, :presence => true
 end
