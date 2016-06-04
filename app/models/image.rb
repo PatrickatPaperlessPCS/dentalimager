@@ -2,7 +2,11 @@ class Image < ActiveRecord::Base
 require 'aws-sdk'
 
 
-	has_attached_file :image_file, url: "/esignhealth/images/:id/:filename", path:"/esignhealth/images/:id/:filename"
+	has_attached_file :image_file, 
+    :styles => {
+      :thumb => "100x100#",
+      :original => "1500x1500>"}
+# url: "/esignhealth/images/:id/:filename", path:"/esignhealth/images/:id/:filename"
 	# validates_attachment_file_name :image_file, matches: [/png\Z/, /jpeg\Z/, /tiff\Z/, /bmp\Z/, /jpg\Z/]
    validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
    # validates :image_file, :presence => true
