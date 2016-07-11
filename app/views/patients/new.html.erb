@@ -1,0 +1,33 @@
+<%= render 'sidebar' %>
+<body style='padding-left: 15px;'>
+
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+<h2>New Patient Folder</h2>
+
+  <div class="field">
+   <strong> Patient Name<br></strong>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+   <strong> Patient Identifier </strong><i>(DOB or Patient ID)</i><br>
+    <%= f.text_field :parent_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Patient Folder"%>
+  </div>
+<% end %>
+<%= link_to 'Back', patients_path %>

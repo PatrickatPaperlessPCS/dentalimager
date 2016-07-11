@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :folders
+
+  resources :patients
+
   get 'pages/baa'
+  get 'pages/index'
 
   devise_for :users
   resources :images
@@ -9,8 +14,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'images#index'
+  root 'patients#index'
   get 'pages/baa'
+
+  match "patients/:patient_id/new_file" => "images#new", :as => "new_sub_file", via: [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

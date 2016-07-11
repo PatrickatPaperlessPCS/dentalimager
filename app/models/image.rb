@@ -10,9 +10,9 @@ url: "/esignhealth/images/:id/:filename", path:"/esignhealth/images/:id/:filenam
 	# validates_attachment_file_name :image_file, matches: [/png\Z/, /jpeg\Z/, /tiff\Z/, /bmp\Z/, /jpg\Z/]
    validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
    # validates :image_file, :presence => true
-  	validates :patient_name, :presence => true
-
-  	belongs_to :user
+  	#validates :patient_name, :presence => true
+  	belongs_to :patient
+  	# belongs_to :user
 
   		before_create :add_token
 		private

@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :confirmable
 
-  has_many :images
+  has_many :images#, :through => :patients
+  has_many :patients
+
 
   	validates :name, :presence => true
   	validates :telephone, :presence => true

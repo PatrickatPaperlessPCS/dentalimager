@@ -19,7 +19,7 @@ class ImagesController < ApplicationController
 
   def share
   end
-  # GET /images/new
+
   def new
     @image = Image.new
   end
@@ -32,11 +32,11 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
-    @image.user_id = current_user.id
-    @image.user_name = current_user.name
+
+
     respond_to do |format|
       if @image.save
-        ImagesMailer.email(@image).deliver_later
+        # ImagesMailer.email(@image).deliver_later
         format.html { redirect_to root_path, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
@@ -45,7 +45,6 @@ class ImagesController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update

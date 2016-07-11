@@ -31,7 +31,7 @@ gem 'aws-sdk', '~> 2'
 gem 'figaro'
 gem 'stripe'
 gem 'unicorn'
-
+gem "cocoon" #for nested folder model
 # For heroku
 gem 'rails_12factor'
 # Use ActiveModel has_secure_password

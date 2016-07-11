@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602232531) do
+ActiveRecord::Schema.define(version: 20160710231924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20160602232531) do
     t.integer  "document_file_file_size"
     t.datetime "document_file_updated_at"
   end
+
+  create_table "folders", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "folders", ["parent_id"], name: "index_folders_on_parent_id", using: :btree
+  add_index "folders", ["user_id"], name: "index_folders_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "patient_name"
@@ -42,6 +54,17 @@ ActiveRecord::Schema.define(version: 20160602232531) do
     t.string   "recipient"
     t.string   "user_id"
     t.string   "user_name"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "token"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "parent_id"
+    t.integer  "user_id"
+    t.string   "identifier"
   end
 
   create_table "tests", force: :cascade do |t|

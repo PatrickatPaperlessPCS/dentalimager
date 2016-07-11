@@ -14,14 +14,6 @@
   <% end %>
   <br>
   <div class="field">
-    Patient Name<sub><i> *required</i></sub><br>
-    <%= f.text_field :patient_name %>
-  </div>
-  <div class="field">
-    Secondary Patient or Image Identifier<br>
-    <%= f.text_field :patient_id %>
-  </div>
-  <div class="field">
     Image Description:<br>
     <%= f.text_field :image_desc %>
   </div>
@@ -33,9 +25,13 @@
   Your recipient's email address:<sub><i> *required</i></sub><br>
   <%= f.email_field :recipient %>
   </div>
+    <div class="field">
+  Your recipient's email address:<sub><i> *required</i></sub><br>
+  <%= f.select :patient_id, options_from_collection_for_select(Patient.all, "id", "name")%>
+  </div>
   <div class="filefield">
   Attach your image file:
-  <%= f.file_field :image_file %>
+  <%= f.file_field :image_file, multiple: true %>
   </div>
 <br>
   <div class="actions">

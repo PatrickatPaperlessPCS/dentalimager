@@ -1,0 +1,34 @@
+<%= render 'sidebar' %>
+<div class="sign_out_right">
+<%= button_to 'Sign Out', destroy_user_session_path,  :method=>'delete', :class => 'btn btn-large btn-black text-center'%>
+</div>
+<div class="left-pad">
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.created_at.strftime("%B %d, %Y at %H:%M") %></td>
+        <td><%= link_to 'View Files', patient %></td>
+        <td><%= link_to 'Add Files', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy Patient Folder', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="center">
+<%= will_paginate @patient %>
+
+<%= button_to '+ Create new patient folder', new_patient_path, :class => 'btn btn-large btn-success text-center', :method => :get  %>
+<br>
+
+
