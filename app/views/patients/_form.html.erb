@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container file-container">
 
 <h3>Add images </h3>
-<%= form_for(Image.new) do |f| %>
+<%= form_for Image.new, html: { multipart: true } do |f| %>
     <%= f.hidden_field :patient_id, value: @patient.id %>
   <div class="field">
     Image Description:<br>
@@ -9,7 +9,7 @@
   </div>
   <div class="filefield">
   Attach your image file:
-  <%= f.file_field :image_file, multiple: true %>
+  <%= f.file_field :image_file %>
   </div>
 <br>
 
@@ -18,5 +18,4 @@
   </div>
 
 <% end %>
-<%= link_to 'Back', patients_path %>
 </div>

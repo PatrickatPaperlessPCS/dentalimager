@@ -4,6 +4,7 @@
 </div>
 <div class="left-pad">
 <br>
+<h4>Images Currently Available:</h4>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -18,18 +19,19 @@
       <tr>
         <td><%= image.created_at.strftime("%b %d %Y") %></td>
         <td><%= image.image_desc %></td>
-<!--          <td><%= image_tag image.image_file(:thumb) %></td> -->
-        <td><%= link_to (image_tag("trash.png", width: '15', height: '15')) + " Delete", image, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
-        <td><%= link_to 'Destroy Patient Folder', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag image.image_file(:thumb) %></td> 
+        <% if user_signed_in? %>
+        <td><%= link_to (image_tag("trash.png", width: '15', height: '15')) + " Delete Image", image, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+        <% end %>
 
 </tr>
     <% end %>
   </tbody>
 </table>
 
-<div class="center">
+
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @patient %> |
-<%= link_to 'Back', patients_path %>
+</div>
+<div class="center">
+<%= link_to 'View Patient Images', @patient %> | <%= link_to 'Back', patients_path %>

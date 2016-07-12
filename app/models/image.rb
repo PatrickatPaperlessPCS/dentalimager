@@ -3,18 +3,18 @@ require 'aws-sdk'
 
 
 	has_attached_file :image_file, 
-    # :styles => {
-    #   :thumb => "100x100#",
-    #   :original => "1500x1500>"}
-url: "/esignhealth/images/:id/:filename", path:"/esignhealth/images/:id/:filename"
+    :styles => {
+      :thumb => "50x50#",
+      :original => "1500x1500>"},
+ url: "/dental-imager/images/:id/:style/:filename", path:"/dental-imager/images/:id/:style/:filename"
 	# validates_attachment_file_name :image_file, matches: [/png\Z/, /jpeg\Z/, /tiff\Z/, /bmp\Z/, /jpg\Z/]
    validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
-   # validates :image_file, :presence => true
+   validates :image_file, :presence => true
   	#validates :patient_name, :presence => true
   	belongs_to :patient
   	# belongs_to :user
 
-  		before_create :add_token
+  before_create :add_token
 		private
 		def add_token
 		  begin

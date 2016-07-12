@@ -48,6 +48,10 @@ GEM
     aws-sdk-resources (2.3.21)
       aws-sdk-core (= 2.3.21)
     bcrypt (3.1.11)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -78,6 +82,7 @@ GEM
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     cocoon (1.2.9)
+    coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -131,6 +136,8 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
+    owlcarousel-rails (1.1.3.3)
+      jquery-rails
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -240,6 +247,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (~> 2)
+  better_errors
   bootstrap-sass (~> 3.3.5)
   byebug
   capistrano (~> 3.4)
@@ -252,6 +260,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  owlcarousel-rails
   paperclip (~> 5.0.0.beta1)
   pg
   postmark-rails

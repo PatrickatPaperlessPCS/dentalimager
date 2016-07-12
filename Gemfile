@@ -34,6 +34,7 @@ gem 'unicorn'
 gem "cocoon" #for nested folder model
 # For heroku
 gem 'rails_12factor'
+gem 'owlcarousel-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -46,6 +47,7 @@ gem 'rails_12factor'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'better_errors'
   gem 'capistrano-rails'
   gem "capistrano", "~> 3.4"
   # Access an IRB console on exception pages or by using <%= console %> in views

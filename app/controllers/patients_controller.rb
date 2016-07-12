@@ -12,8 +12,8 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    patient = Patient.find(params[:id])
-    @images = patient.images
+    @patient = Patient.find(params[:id])
+    @images = @patient.images
   end
 
   # GET /patients/new
@@ -24,6 +24,7 @@ class PatientsController < ApplicationController
   # GET /patients/1/edit
   def edit
     # @image = @patient.images.build
+    @patient = Patient.find(params[:id])
     @image = Image.new
   end
 
@@ -34,7 +35,7 @@ class PatientsController < ApplicationController
     @patient.user_id = current_user.id
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to patients_path, notice: 'Patient Folder was successfully created.' }
+        format.html { redirect_to edit_patient_path(@patient), notice: 'Patient Folder was successfully created.' }
       else
         format.html { render :new }
       end
