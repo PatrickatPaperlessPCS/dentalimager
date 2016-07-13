@@ -33,7 +33,10 @@
 
 <%= render 'form' %>
 </div>
-
+<div class='container'>
+<div style='border: 5px solid #d7d7d7; background-color: #f1f1f1'>
+<div class='center'>
+  <h4>Share this patient's folder</h4>
 <%= form_for(@patient) do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
@@ -46,15 +49,16 @@
       </ul>
     </div>
   <% end %>
-  <br>
   <div class="field">
     Recipient's Email:<br>
     <%= f.email_field :email %>
   </div>
-
     <div class="actions">
     <%= f.submit %>
   </div>
   <% end %>
+</div>
+</div>
+<br>
 <div class="center">
 <%= link_to 'View Patient Images', @patient %> | <%= link_to 'Back', patients_path %>

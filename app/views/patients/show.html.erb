@@ -1,5 +1,7 @@
 <% if user_signed_in? %><%= render 'sidebar' %><% end %>
+<div class="left-pad">
 <br>
+<h3><%= @patient.name %>, <%= @patient.parent_id %></h3>
 <table class="table table-hover">
   <thead>
     <tr>

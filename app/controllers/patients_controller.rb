@@ -22,7 +22,11 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
+    if current_user.created_at <= 1.minute.ago && !current_user.subscribed
+        redirect_to new_charge_path
+    else
     @patient = Patient.new
+  end
   end
 
   # GET /patients/1/edit
