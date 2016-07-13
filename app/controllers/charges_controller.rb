@@ -16,7 +16,7 @@ def create
 	  current_user.subscribed = true
 	  current_user.save!
 	  
-	  redirect_to images_path
+	  redirect_to root_path
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
