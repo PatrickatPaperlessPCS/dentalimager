@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:show]
   # GET /patients
   # GET /patients.json
   def index
@@ -12,8 +12,12 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    if user_signed_in?
     @patient = Patient.find(params[:id])
+  else
+    @patient = Patient.find_by(token: params[:token], id: params[:id])
     @images = @patient.images
+  end
   end
 
   # GET /patients/new
@@ -53,6 +57,9 @@ class PatientsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
+    if @patient.email.present?
+      ImagesMailer.email(@patient).deliver_later
+    end  
     end
   end
 
@@ -74,7 +81,7 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :token, :email, images_attributes: [:id, :description, :done, :_destroy, :patient_name, :patient_id, :image_desc, :dob, :image_file, :user_name, :token, :user_id, :recipient])
+      params.require(:patient).permit(:name, :token, :email, :parent_id, images_attributes: [:id, :description, :done, :_destroy, :patient_name, :patient_id, :image_desc, :dob, :image_file, :user_name, :token, :user_id, :recipient])
       # params.require(:patient).permit(:name, :token, :email) - commented out for above to accept nested deletions
     end
 end

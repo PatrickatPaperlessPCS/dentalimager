@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root 'patients#index'
   get 'pages/baa'
 
-  match "patients/:patient_id/new_file" => "images#new", :as => "new_sub_file", via: [:get, :post]
+  match "patient/share" => "patient#share", via: [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

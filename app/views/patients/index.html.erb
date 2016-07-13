@@ -1,13 +1,18 @@
 <%= render 'sidebar' %>
+<% if user_signed_in? %>
+  
 <div class="sign_out_right">
-<%= button_to 'Sign Out', destroy_user_session_path,  :method=>'delete', :class => 'btn btn-large btn-black text-center'%>
+<%= link_to (image_tag("out.png", width: '15', height: '15')) + " Sign Out", destroy_user_session_path,  :method=>'delete' %>
 </div>
+
+<% end %>
 <div class="left-pad">
 <br>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Patient Name</th>
+      <th>ID</th>
       <th>Created on</th>
       <th colspan="3"></th>
     </tr>
@@ -16,9 +21,11 @@
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= patient.name %></td>
+        <td><%= image_tag 'folder', width: '20', height: '15' %>  <%= patient.name %></td>
+        <td><%= patient.parent_id %></td>
         <td><%= patient.created_at.strftime("%B %d, %Y at %H:%M") %></td>
         <td><%= link_to 'View Files', patient %></td>
+        <!-- <td><%= link_to "Share", patient_share_path, :patient_id => patient.id, :patient_name => patient.name %></td> -->
         <td><%= link_to 'Add Files', edit_patient_path(patient) %></td>
         <td><%= link_to 'Destroy Patient Folder', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

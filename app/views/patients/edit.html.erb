@@ -1,9 +1,9 @@
 <%= render 'sidebar' %>
-<div class="sign_out_right">
-<%= button_to 'Sign Out', destroy_user_session_path,  :method=>'delete', :class => 'btn btn-large btn-black text-center'%>
-</div>
+
 <div class="left-pad">
 <br>
+<h3><%= @patient.name %>, <%= @patient.parent_id %></h3>
+<hr>
 <h4>Images Currently Available:</h4>
 <table class="table table-hover">
   <thead>
@@ -33,5 +33,28 @@
 
 <%= render 'form' %>
 </div>
+
+<%= form_for(@patient) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <div class="field">
+    Recipient's Email:<br>
+    <%= f.email_field :email %>
+  </div>
+
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
 <div class="center">
 <%= link_to 'View Patient Images', @patient %> | <%= link_to 'Back', patients_path %>

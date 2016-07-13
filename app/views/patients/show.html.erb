@@ -1,7 +1,4 @@
-<%= render 'sidebar' %>
-<div class="sign_out_right">
-<%= button_to 'Sign Out', destroy_user_session_path,  :method=>'delete', :class => 'btn btn-large btn-black text-center'%>
-</div>
+<% if user_signed_in? %><%= render 'sidebar' %><% end %>
 <br>
 <table class="table table-hover">
   <thead>
@@ -23,8 +20,9 @@
   </tbody>
 </table>
 
-
+<% if user_signed_in? %>
 <div class="center">
 <%= link_to 'Add Image Files', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
+<% end %>
 </div>
