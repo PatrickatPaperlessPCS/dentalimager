@@ -4,11 +4,8 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-      if current_user.created_at <= 1.week.ago && !current_user.subscribed
-        redirect_to new_charge_path
-    else
+
     @images = current_user.images.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-  end
   end
 
   # GET /images/1

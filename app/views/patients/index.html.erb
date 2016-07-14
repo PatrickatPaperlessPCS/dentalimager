@@ -12,7 +12,6 @@
   <thead>
     <tr>
       <th>Patient Name</th>
-      <th>ID</th>
       <th>Created on</th>
       <th colspan="2"></th>
     </tr>
@@ -22,7 +21,6 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><%= image_tag 'folder', width: '20', height: '15' %>  <%= patient.name %></td>
-        <td><%= patient.parent_id %></td>
         <td><%= patient.created_at.strftime("%B %d, %Y at %H:%M") %></td>
         <td><%= link_to 'View Files', patient %></td>
         <!-- <td><%= link_to "Share", patient_share_path, :patient_id => patient.id, :patient_name => patient.name %></td> -->
