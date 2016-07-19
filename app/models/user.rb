@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
 
   	validates :name, :presence => true
   	validates :telephone, :presence => true
-  	validates :agreement, :presence => true
+  	validates :agreement, :presence => true, :on => :create
 end
