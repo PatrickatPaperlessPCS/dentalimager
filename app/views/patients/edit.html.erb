@@ -29,35 +29,38 @@
   </tbody>
 </table>
 
+<div class="row" >
+  <div class="col-xs-6">
 
 
 <%= render 'form' %>
-</div>
-<div class='container'>
-<div style='border: 5px solid #d7d7d7; background-color: #f1f1f1'>
-<div class='center'>
-  <h4>Share this patient's folder</h4>
-<%= form_for(@patient) do |f| %>
-  <% if @image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
 
-      <ul>
-      <% @image.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    Recipient's Email:<br>
-    <%= f.email_field :email %>
-  </div>
-    <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %>
-</div>
+
+
+<div class="col-xs-6">
+
+          <h4>Share this patient's folder</h4>
+        <%= form_for(@patient) do |f| %>
+          <% if @image.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+              <ul>
+              <% @image.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+            Recipient's Email:<br>
+            <%= f.email_field :email %>
+          </div>
+            <div class="actions">
+            <%= f.submit "Share Patient Folder" %>
+          </div>
+          <% end %>
+        </div>
 </div>
 <br>
 <div class="center">

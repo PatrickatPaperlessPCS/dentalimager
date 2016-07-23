@@ -1,6 +1,6 @@
-<div class="container file-container center">
 
-<h3>Add images </h3>
+<center>
+  <h4>Add Images to this Folder </h4>
 <%= form_for Image.new, html: { multipart: true } do |f| %>
     <%= f.hidden_field :patient_id, value: @patient.id %>
   <div class="field">
@@ -14,7 +14,7 @@
 <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add This Image"  %>
   </div>
 
 <% end %>
