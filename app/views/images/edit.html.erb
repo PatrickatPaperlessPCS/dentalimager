@@ -1,6 +1,13 @@
-<h1>Editing Image</h1>
-
 <%= render 'form' %>
 
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+<h3>Click Image to Edit</h3>
+<a href="javascript:pixlr.overlay.show({image:'<%= @image.image_file.url %>', title:'<%= @image.image_file_file_name %>', service:'editor', target:' http://b30c8245.ngrok.io/images/165>', exit:'http://localhost', referrer:'Dental Imager', locktarget:'true', locktitle:'true', quality:'100', locktype:'jpg', exit:'http://www.google.com'});" title='edit'> <%= image_tag @image.image_file %></a>
+
+
+
+    // <script type="text/javascript">
+    //     pixlr.settings.target = '<%= @image.image_file.url %>';
+   	//  	pixlr.settings.exit = 'http://localhost';
+   	// 	pixlr.settings.method = 'POST';
+   	//     pixlr.settings.redirect = false;
+    // </script>
