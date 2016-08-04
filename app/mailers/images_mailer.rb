@@ -4,7 +4,7 @@ class ImagesMailer < ApplicationMailer
 		@patient = patient
 	     mail(
 	  :subject => "PatientPhotos: view your patient photos!" ,
-	  :to  => 'patrick@paperlesspcs.com' ,
+	  :to  => @patient.email,
 	  :track_opens => 'true'
 	)
 	end

@@ -4,7 +4,7 @@ class Usermailer < ApplicationMailer
 	@user = User.find(id)	
 		mail(
 	  :subject => 'New Sign Up' ,
-	  :to  => 'patrick@dentalimager.com' ,
+	  :to  => 'patrick@patientphotos.net' ,
 	  :track_opens => 'true'
 		)
 	end
