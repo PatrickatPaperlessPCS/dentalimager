@@ -1,5 +1,5 @@
-<center><img src="http://dentalimager.com/wp-content/uploads/2016/05/DILogoblack-blue896x151.png" alt="Logo" style = "width:80%"></center>
+<center><img src="http://patientphotos.net/wp-content/uploads/2016/08/PatientPhotosnet-861-151.png" alt="Logo" style = "width:80%"></center>
 
-<h3> <%= @patient.user.name %> has sent you an image using DentalImager in reference to patient <%= @patient.name %> ! </h3>
+<h3> <%= @patient.user.name %> has sent you an image using PatientPhotos.net in reference to patient <%= @patient.name %> ! </h3>
 
 Click this link to view the image: <%= link_to 'Click Here', patient_url(:id => @patient.id, :token => @patient.token) %>

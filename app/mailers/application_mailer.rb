@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@dentalimager.com'
+  default from: 'info@patientphotos.net'
   layout 'mailer'
 end

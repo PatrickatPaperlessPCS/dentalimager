@@ -3,7 +3,7 @@ class ImagesMailer < ApplicationMailer
 	def email(patient)
 		@patient = patient
 	     mail(
-	  :subject => "DentalImager: You've recieved an image!" ,
+	  :subject => "PatientPhotos: view your patient photos!" ,
 	  :to  => 'patrick@paperlesspcs.com' ,
 	  :track_opens => 'true'
 	)
