@@ -85,7 +85,7 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :token, :email, :parent_id, images_attributes: [:id, :description, :done, :_destroy, :patient_name, :patient_id, :image_desc, :dob, :image_file, :user_name, :token, :user_id, :recipient])
+      params.require(:patient).permit(:name, :token, :email, :parent_id, :identifier, images_attributes: [:id, :description, :done, :_destroy, :patient_name, :patient_id, :image_desc, :dob, :image_file, :user_name, :token, :user_id, :recipient])
       # params.require(:patient).permit(:name, :token, :email) - commented out for above to accept nested deletions
     end
 end

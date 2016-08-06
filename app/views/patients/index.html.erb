@@ -12,6 +12,7 @@
   <thead>
     <tr>
       <th>Patient Name</th>
+      <th>Secondary ID</th>
       <th>Created on</th>
       <th colspan="2"></th>
     </tr>
@@ -21,6 +22,7 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>   &nbsp <%= patient.name %></td>
+        <td><%= patient.identifier %></td>
         <td><%= patient.created_at.strftime("%B %d, %Y at %H:%M") %></td>
         <td><%= link_to 'View Slideshow', patient %></td>
         <!-- <td><%= link_to "Share", patient_share_path, :patient_id => patient.id, :patient_name => patient.name %></td> -->
