@@ -10,7 +10,7 @@ def create
 		  :source => token, # obtained from Stripe.js
 		  :plan => "2495monthly",
 		  :email => current_user.email,
-		  # :coupon => "<%= "
+		  #:coupon => current_user.referall
 	  	)
 
 	  current_user.subscribed = true

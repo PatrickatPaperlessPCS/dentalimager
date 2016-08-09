@@ -34,13 +34,55 @@
   <div class="col-xs-6">
 
 
-<%= render 'form' %>
+
+
+<!-- Button trigger modal --><center>
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addimages">
+  <span class="glyphicon glyphicon-floppy-open"></span> Add Images 
+</button>
+</center>
+<!-- Modal -->
+<div class="modal fade" id="addimages" tabindex="-1" role="dialog" aria-labelledby="addimages">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Images to this Folder</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 <div class="col-xs-6">
 
-          <h4>Share this patient's folder</h4>
+<!-- Button trigger modal --><center>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#share">
+  <span class="glyphicon glyphicon-share"></span> Share Folder 
+</button>
+</center>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="share">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Share this patient's folder</h4>
+      </div>
+      <div class="modal-body">
+<center>
+
+
         <%= form_for(@patient) do |f| %>
           <% if @image.errors.any? %>
             <div id="error_explanation">
@@ -62,6 +104,19 @@
           </div>
           <% end %>
         </div>
+
+</center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 </div>
 <br>
 <div class="center">
