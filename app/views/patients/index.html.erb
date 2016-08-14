@@ -1,11 +1,5 @@
 <%= render 'sidebar' %>
-<% if user_signed_in? %>
-  
-<div class="sign_out_right">
-<%= link_to (image_tag("out.png", width: '15', height: '15')) + " Sign Out", destroy_user_session_path,  :method=>'delete' %>
-</div>
 
-<% end %>
 <div class="left-pad">
 <br>
 <table class="table table-hover">

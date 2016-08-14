@@ -1,40 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"><%= image_tag "logo.png", height: 25 %></a>
+    </div>
 
-<head>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+                <li><%= link_to "Patient Files", root_path %></li>
+                                <li><%= link_to "Edit my Profile", edit_user_registration_path %></li>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        </li>
+      </ul>
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-<%=link_to (image_tag("logo.png", width: '200', height: '55', :class => "sidebar-img")), root_path %>
-                    </a>
-                </li>
-                <br>
-                <li><%= link_to (image_tag("edit.png", width: '15', height: '15')) + "  Patient Files", root_path %></li>
-                <li><%= link_to (image_tag("profile.png", width: '15', height: '15')) + "  Edit my Profile", edit_user_registration_path %></li>
+      <ul class="nav navbar-nav navbar-right">
                 <li>
-<!--                 <li><%= link_to (image_tag("help.png", width: '15', height: '15')) + "  Help Documentation", 'http://esignhealth.com/help', :target => '_blank' %> -->
-                <li>
-                    <%= link_to (image_tag("out.png", width: '15', height: '15')) + " Exit", destroy_user_session_path,  :method=>'delete' %>
+                    <%= link_to " Log Out", destroy_user_session_path,  :method=>'delete' %>
                 </li>
-
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
